@@ -1,0 +1,21 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+header h3 {
+    margin: 50px 0 0 50px;
+}
+
+#container {
+    margin : 100px auto;
+    background-color: white;
+    height: 300px;
+    width : 700px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+.container button {
+    
+}
