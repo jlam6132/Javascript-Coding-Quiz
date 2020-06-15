@@ -5,16 +5,16 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
-let c = 10;
-var score = 0;
+let score = 0;
 
 startButton.addEventListener('click', startGame)
-nextButton.addEventListener('click', () => {
+answerButtonsElement.addEventListener('click', () => {
   currentQuestionIndex++
   setNextQuestion()
 })
 
 function startGame() {
+  c=10;
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
@@ -23,14 +23,15 @@ function startGame() {
 }
 
 function timer001() {
-    c--;
+    c -= 1;
     if (c < 10) {
         time001.innerHTML = c;
     }
 
     if (c === 0) {
         window.clearInterval(update)
-        window.alert("Time's up! You got " + score + "/" + questions.length + ".")
+        window.alert("Time's up!")
+        window.prompt("Highscore of " + score + "! Enter name below:")
     }
 }
 
@@ -99,37 +100,37 @@ const questions = [
   {
     question: "Which is NOT a way a declare a variable in Javascript?",
     answers: [
-        { text: "const", correct: false },
-        { text: "var", correct: false },
-        { text: "let", correct: false },
+        { text: "const", wrong: false },
+        { text: "var", wrong: false },
+        { text: "let", wrong: false },
         { text: "cont", correct: true }
     ]
   },
   {
     question: "What is the arithmetic operator for modulo?",
     answers: [
-      { text: "+=", correct: false },
+      { text: "+=", wrong: false },
       { text: "%", correct: true },
-      { text: "===", correct: false },
-      { text: "/=", correct: false }
+      { text: "===", wrong: false },
+      { text: "/=", wrong: false }
     ]
   },
   {
     question: "What is used to make a single-line comment? in Javascript",
     answers: [
-      { text: " */ text /*", correct: false },
-      { text: "/* text */" , correct: false },
+      { text: " */ text /*", wrong: false },
+      { text: "/* text */" , wrong: false },
       { text: "// text", correct: true },
-      { text: "<! text ->", correct: false }
+      { text: "<! text ->", wrong: false }
     ]
   },
   {
     question: "What method is used to add an element to an array?",
     answers: [
-        { text: ".push", correct: false },
-        { text: ".pull" , correct: false },
+        { text: ".push", wrong: false },
+        { text: ".pull" , wrong: false },
         { text: ".pop", correct: true },
-        { text: ".log", correct: false }
+        { text: ".log", wrong: false }
     ]
   }
 ]

@@ -12,7 +12,6 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --hue: var(--hue-neutral);
     padding: 0;
-    margin: 0;
     display: flex;
     width: 100vw;
     height: 100vh;
