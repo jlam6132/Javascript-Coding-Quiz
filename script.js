@@ -5,6 +5,8 @@ const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
+let c = 10;
+var score = 0;
 
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', () => {
@@ -14,7 +16,6 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
-  c = 10;
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
@@ -29,7 +30,7 @@ function timer001() {
 
     if (c === 0) {
         window.clearInterval(update)
-        window.alert("Time's up! Game over!")
+        window.alert("Time's up! You got " + score + "/" + questions.length + ".")
     }
 }
 
@@ -81,9 +82,10 @@ function selectAnswer(e) {
 function setStatusClass(element, correct) {
   clearStatusClass(element)
   if (correct) {
-    element.classList.add('correct')
+    element.classList.add('correct');
+    score++;
   } else {
-    element.classList.add('wrong')
+    element.classList.add('wrong');
   }
 }
 
@@ -91,6 +93,7 @@ function clearStatusClass(element) {
   element.classList.remove('correct')
   element.classList.remove('wrong')
 }
+
 
 const questions = [
   {
@@ -130,6 +133,7 @@ const questions = [
     ]
   }
 ]
+
 
 
 
